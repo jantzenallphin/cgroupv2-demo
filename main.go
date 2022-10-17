@@ -26,14 +26,12 @@ var wg sync.WaitGroup
 
 func main() {
 	numThreads := runtime.GOMAXPROCS(0)
-
 	log.Println("GOMAXPROCS set to ", numThreads)
-
-	wg.Add(numThreads)
-
-	for i := 0; i < numThreads; i++ {
-		go RunSquareRoot()
+	for {
+		wg.Add(numThreads)
+		for i := 0; i < numThreads; i++ {
+			go RunSquareRoot()
+		}
+		wg.Wait()
 	}
-
-	wg.Wait()
 }
