@@ -1,7 +1,7 @@
 IMAGE_NAME = cgroupsv2-demo
 REPO_NAME = jallphin/$(IMAGE_NAME)
 REGISTRY = docker.io
-VERSION = v0.0.1
+VERSION = v0.0.2
 
 .PHONY: build test run image-build image-push VERSION
 default: build
